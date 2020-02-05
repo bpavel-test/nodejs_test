@@ -17,7 +17,7 @@ Clone this repo and run:
 npm start
 ```
 
-If server was successfuly start you'll next message:
+If server was successfuly started you'll next message:
 
 ```
 Server is running on 3000
@@ -55,7 +55,7 @@ You can specify transaction type in property type - debit or credit. Any other t
 The property 'amount' could be only number. Transaction with negative amount will be rejected.
 
 ### Transaction hisoty
-Each successful transaction will have record in history:
+Each successful transaction will have own record in history. Any read operation will be blocked by write operation and resolved after write operation or resolved with empty object after timeout 10 sec.
 ```
 {
     "id": "string",
@@ -84,6 +84,7 @@ Response:
 ```
 
 Also you can get specific transaction by id.
+
 GET:
 ```
 http://localhost:3000/history/:id
